@@ -43,6 +43,7 @@
 }
 
 .btn,
-.form-control {
+.form-control,
+.form-check-input {
   box-shadow: none !important;
 }
