@@ -1,24 +1,70 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { useState } from "react";
+import Navbar from "./components/Navbar";
+import FormText from "./components/FormText";
+// import About from "./components/About";
+import Alert from "./components/Alert";
+// import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function App() {
+  const [mode, setMode] = useState("light");
+  const [modeText, setmodeText] = useState("Enable To Dark Mode");
+  const [alert, setalert] = useState(null);
+
+  const showAlert = (type, msg) => {
+    setalert({
+      type: type,
+      message: msg,
+    });
+
+    setTimeout(() => {
+      setalert(null);
+    }, 2000);
+  };
+
+  const toggleMode = () => {
+    if (mode === "light") {
+      setMode("dark");
+      document.body.style.backgroundColor = "black";
+      document.body.style.color = "white";
+      setmodeText("Enable light Mode");
+      showAlert("success", "Dark mode Enabled");
+    } else {
+      setMode("light");
+      document.body.style.backgroundColor = "white";
+      document.body.style.color = "black";
+      setmodeText("Enable Dark Mode");
+      showAlert("success", "Light mode Enabled");
+    }
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    // <Router>
+    <>
+      <Navbar mode={mode} />
+      <Alert alert={alert} showAlert={showAlert} />
+      {/* <Switch>
+          <Route path="/about">
+            <About
+              title="About Us"
+              mode={mode}
+              toggleMode={toggleMode}
+              modeText={modeText}
+            />
+          </Route> */}
+
+      {/* <Route path="/"> */}
+      <FormText
+        mode={mode}
+        title="Welcome Our Text Analyzer"
+        toggleMode={toggleMode}
+        modeText={modeText}
+        showAlert={showAlert}
+      />
+      {/* </Route> */}
+      {/* </Switch> */}
+    </>
+    // </Router>
   );
 }
 

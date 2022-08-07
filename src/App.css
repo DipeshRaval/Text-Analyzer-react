@@ -36,3 +36,13 @@
     transform: rotate(360deg);
   }
 }
+
+.logo {
+  width: 40px;
+  height: 40px;
+}
+
+.btn,
+.form-control {
+  box-shadow: none !important;
+}
