@@ -151,19 +151,6 @@ export default function FormText(props) {
           readOnly
         ></textarea>
       </div>
-      <div className="container">
-        <button
-          type="button"
-          className={`btn btn-outline-${
-            props.mode === "light" ? "dark" : "light"
-          } fw-bold border border-3 border-${
-            props.mode === "light" ? "dark" : "light"
-          } my-2`}
-          onClick={props.toggleMode}
-        >
-          {props.modeText}
-        </button>
-      </div>
     </>
   );
 }

@@ -9,7 +9,7 @@ export default function Navbar(props) {
         className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode}`}
       >
         <div className="container-fluid">
-          <a className="navbar-brand" href="/">
+          <a className="navbar-brand" href="#">
             <img src={logo} className="logo" alt="" />
           </a>
           {/* <Link className="navbar-brand" to="/">
@@ -29,7 +29,7 @@ export default function Navbar(props) {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <a className="nav-link active" aria-current="page" href="/">
+                <a className="nav-link active" aria-current="page" href="#">
                   TextFormatter
                 </a>
                 {/* <Link className="nav-link active" aria-current="page" to="/">
@@ -42,6 +42,18 @@ export default function Navbar(props) {
                 </Link>
               </li> */}
             </ul>
+          </div>
+          <div className="form-check form-switch mx-2">
+            <input
+              className="form-check-input"
+              type="checkbox"
+              role="switch"
+              id="flexSwitchCheckDefault"
+              onClick={props.toggleMode}
+            />
+            <label className="form-check-label" for="flexSwitchCheckDefault">
+              {props.modeText}
+            </label>
           </div>
         </div>
       </nav>

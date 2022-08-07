@@ -41,7 +41,7 @@ function App() {
   return (
     // <Router>
     <>
-      <Navbar mode={mode} />
+      <Navbar mode={mode} modeText={modeText} toggleMode={toggleMode} />
       <Alert alert={alert} showAlert={showAlert} />
       {/* <Switch>
           <Route path="/about">
@@ -58,7 +58,6 @@ function App() {
         mode={mode}
         title="Welcome Our Text Analyzer"
         toggleMode={toggleMode}
-        modeText={modeText}
         showAlert={showAlert}
       />
       {/* </Route> */}
